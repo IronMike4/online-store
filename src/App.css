@@ -1,0 +1,71 @@
+/* Center text for the main App component */
+.App {
+  text-align: center;
+}
+
+/* Style for the logo image */
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Apply spinning animation to the logo if reduced motion is not preferred */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+/* Style for the header section of the App */
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* Style for links in the App */
+.App-link {
+  color: #61dafb;
+}
+
+/* Keyframes for spinning animation */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Global body styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Padding for containers to avoid overlap with fixed elements */
+.container {
+  padding-top: 50px;
+}
+
+/* Style for the navbar brand */
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Style for the total price display */
+.total-price {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

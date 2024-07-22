@@ -1,0 +1,10 @@
+/* Style for the image to ensure consistent sizing */
+.about-img {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Add spacing around the card */
+.card {
+  margin-bottom: 20px;
+}
