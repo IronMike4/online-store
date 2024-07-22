@@ -8,7 +8,6 @@ import "./ProductsPage.css";
 
 // List of products with details
 const products = [
-  // Each product has an id, title, description, price, imageUrl, and colors
   {
     id: 1,
     title: "Yeezy cargo pants",
@@ -93,6 +92,7 @@ const products = [
 
 const ProductsPage = ({ updateTotalPrice, showPrice = true }) => {
   const [selectedColors, setSelectedColors] = useState({});
+  const [errorMessages, setErrorMessages] = useState({});
 
   // Handle color selection for a product
   const handleColorSelect = (productId, color) => {
@@ -100,11 +100,24 @@ const ProductsPage = ({ updateTotalPrice, showPrice = true }) => {
       ...selectedColors,
       [productId]: color,
     });
+    // Clear error message when a color is selected
+    setErrorMessages({
+      ...errorMessages,
+      [productId]: "",
+    });
   };
 
   // Handle product purchase and update total price
-  const handleBuy = (price) => {
-    updateTotalPrice(price);
+  const handleBuy = (productId, price) => {
+    // Check if a color has been selected for the product
+    if (!selectedColors[productId]) {
+      setErrorMessages({
+        ...errorMessages,
+        [productId]: "Please select a color before buying!", // Set error message
+      });
+      return;
+    }
+    updateTotalPrice(price); // Update total price if color is selected
   };
 
   return (
@@ -149,11 +162,17 @@ const ProductsPage = ({ updateTotalPrice, showPrice = true }) => {
                     </Dropdown.Item>
                   ))}
                 </DropdownButton>
+                {/* Display error message if there's an error */}
+                {errorMessages[product.id] && (
+                  <div className="text-danger mb-2">
+                    {errorMessages[product.id]}
+                  </div>
+                )}
                 {/* Buy Now button */}
                 <Button
                   variant="primary"
                   className="w-100"
-                  onClick={() => handleBuy(product.price)}
+                  onClick={() => handleBuy(product.id, product.price)}
                 >
                   Buy Now
                 </Button>

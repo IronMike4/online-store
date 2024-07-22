@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Navigation = () => {
+  const location = useLocation(); // Get the current location to determine active route
+
   // Function to close the offcanvas menu
   const closeOffcanvas = () => {
     const offcanvas = document.querySelector(".offcanvas");
@@ -15,6 +17,9 @@ const Navigation = () => {
       }
     }
   };
+
+  // Determine if the current path matches the link
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
@@ -60,7 +65,7 @@ const Navigation = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
-                  className="nav-link text-light"
+                  className={`nav-link text-light ${isActive("/") ? "active" : ""}`}
                   to="/"
                   onClick={closeOffcanvas}
                 >
@@ -70,7 +75,7 @@ const Navigation = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link text-light"
+                  className={`nav-link text-light ${isActive("/products") ? "active" : ""}`}
                   to="/products"
                   onClick={closeOffcanvas}
                 >
@@ -80,7 +85,7 @@ const Navigation = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link text-light"
+                  className={`nav-link text-light ${isActive("/about") ? "active" : ""}`}
                   to="/about"
                   onClick={closeOffcanvas}
                 >
@@ -95,19 +100,28 @@ const Navigation = () => {
         <div className="collapse navbar-collapse d-none d-lg-flex">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/">
+              <Link
+                className={`nav-link text-light ${isActive("/") ? "active" : ""}`}
+                to="/"
+              >
                 Home
               </Link>{" "}
               {/* Home link */}
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/products">
+              <Link
+                className={`nav-link text-light ${isActive("/products") ? "active" : ""}`}
+                to="/products"
+              >
                 Products
               </Link>{" "}
               {/* Products link */}
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-light" to="/about">
+              <Link
+                className={`nav-link text-light ${isActive("/about") ? "active" : ""}`}
+                to="/about"
+              >
                 About
               </Link>{" "}
               {/* About link */}
