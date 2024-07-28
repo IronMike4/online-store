@@ -1,65 +1,42 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomePage = () => {
-  const [username, setUsername] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [error, setError] = useState("");
-
-  // Handle login action
-  const handleLogin = () => {
-    if (username.trim()) {
-      setIsLoggedIn(true);
-      setError("");
-    } else {
-      setError("Please enter your name.");
-    }
-  };
-
-  // Handle logout action
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername("");
-  };
-
-  // Handle Enter key press for login/logout
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      isLoggedIn ? handleLogout() : handleLogin();
-    }
-  };
-
   return (
-    <div className="container mt-5 d-flex justify-content-center align-items-center flex-column">
-      {!isLoggedIn ? ( // Display login form if not logged in
-        <div className="text-center">
-          <h1 className="mb-4">Please Log In</h1>
-          <div className="mb-3">
-            <input
-              type="text"
-              className="form-control"
-              style={{ maxWidth: "400px" }}
-              placeholder="Enter your name"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onKeyPress={handleKeyPress}
-            />
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        {/* Welcome message */}
+        <div className="col-12 text-center mb-4">
+          <h1>Welcome to Our Online Store</h1>
+        </div>
+        {/* Introductory text */}
+        <div className="col-12 text-center mb-4">
+          <p>
+            Discover a wide range of products including clothing, accessories, and more.
+            Sign in or register to start shopping!
+          </p>
+        </div>
+        {/* Image representing the store */}
+        <div className="col-12 col-md-8 text-center mb-4">
+          <img
+            src="/images/online-store.webp"
+            alt="Store Front"
+            className="img-fluid rounded"
+          />
+        </div>
+        {/* Login and Register buttons */}
+        <div className="col-12 text-center">
+          <div className="d-flex justify-content-center flex-wrap">
+            <Link to="/login" className="btn btn-primary m-2">
+              Login
+            </Link>
+            <Link to="/register" className="btn btn-secondary m-2">
+              Register
+            </Link>
           </div>
-          {error && <div className="alert alert-danger">{error}</div>}{" "}
-          {/* Display error message if any */}
-          <button className="btn btn-primary" onClick={handleLogin}>
-            Login
-          </button>
         </div>
-      ) : (
-        // Display welcome message if logged in
-        <div className="text-center">
-          <h1 className="mb-4">Welcome, {username}!</h1>
-          <button className="btn btn-secondary" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

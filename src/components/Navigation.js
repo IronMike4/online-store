@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Navigation = () => {
-  const location = useLocation(); // Get the current location to determine active route
+  const location = useLocation(); // Get the current location to determine the active route
 
   // Function to close the offcanvas menu
   const closeOffcanvas = () => {
@@ -26,8 +26,9 @@ const Navigation = () => {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Online Store
-        </Link>{" "}
+        </Link>
         {/* Brand name */}
+
         {/* Hamburger button for mobile */}
         <button
           className="navbar-toggler d-lg-none"
@@ -40,6 +41,7 @@ const Navigation = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         {/* Offcanvas menu for mobile */}
         <div
           className="offcanvas offcanvas-end d-lg-none"
@@ -65,66 +67,115 @@ const Navigation = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-light ${isActive("/") ? "active" : ""}`}
+                  className={`nav-link text-light ${
+                    isActive("/") ? "active" : ""
+                  }`}
                   to="/"
                   onClick={closeOffcanvas}
                 >
                   Home
-                </Link>{" "}
-                {/* Home link */}
+                </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-light ${isActive("/products") ? "active" : ""}`}
+                  className={`nav-link text-light ${
+                    isActive("/products") ? "active" : ""
+                  }`}
                   to="/products"
                   onClick={closeOffcanvas}
                 >
                   Products
-                </Link>{" "}
-                {/* Products link */}
+                </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className={`nav-link text-light ${isActive("/about") ? "active" : ""}`}
+                  className={`nav-link text-light ${
+                    isActive("/about") ? "active" : ""
+                  }`}
                   to="/about"
                   onClick={closeOffcanvas}
                 >
                   About
-                </Link>{" "}
-                {/* About link */}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link text-light ${
+                    isActive("/login") ? "active" : ""
+                  }`}
+                  to="/login"
+                  onClick={closeOffcanvas}
+                >
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className={`nav-link text-light ${
+                    isActive("/register") ? "active" : ""
+                  }`}
+                  to="/register"
+                  onClick={closeOffcanvas}
+                >
+                  Register
+                </Link>
               </li>
             </ul>
           </div>
         </div>
+
         {/* Desktop menu */}
         <div className="collapse navbar-collapse d-none d-lg-flex">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
-                className={`nav-link text-light ${isActive("/") ? "active" : ""}`}
+                className={`nav-link text-light ${
+                  isActive("/") ? "active" : ""
+                }`}
                 to="/"
               >
                 Home
-              </Link>{" "}
-              {/* Home link */}
+              </Link>
             </li>
             <li className="nav-item">
               <Link
-                className={`nav-link text-light ${isActive("/products") ? "active" : ""}`}
+                className={`nav-link text-light ${
+                  isActive("/products") ? "active" : ""
+                }`}
                 to="/products"
               >
                 Products
-              </Link>{" "}
-              {/* Products link */}
+              </Link>
             </li>
             <li className="nav-item">
               <Link
-                className={`nav-link text-light ${isActive("/about") ? "active" : ""}`}
+                className={`nav-link text-light ${
+                  isActive("/about") ? "active" : ""
+                }`}
                 to="/about"
               >
                 About
-              </Link>{" "}
-              {/* About link */}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className={`nav-link text-light ${
+                  isActive("/login") ? "active" : ""
+                }`}
+                to="/login"
+              >
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className={`nav-link text-light ${
+                  isActive("/register") ? "active" : ""
+                }`}
+                to="/register"
+              >
+                Register
+              </Link>
             </li>
           </ul>
         </div>

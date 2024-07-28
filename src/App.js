@@ -5,6 +5,8 @@ import HomePage from "./components/HomePage";
 import ProductsPage from "./components/ProductsPage";
 import AboutPage from "./components/AboutPage";
 import TotalPrice from "./components/TotalPrice";
+import LoginPage from "./components/LoginPage";
+import RegistrationPage from "./components/RegistrationPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -35,6 +37,8 @@ const App = () => {
           element={<ProductsPage updateTotalPrice={updateTotalPrice} />}
         />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
       </Routes>
     </Router>
   );

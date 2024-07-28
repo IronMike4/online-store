@@ -1,0 +1,11 @@
+/* Style for the authentication form container */
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Style for button links within elements having the position-relative class */
+.position-relative .btn-link {
+  padding: 0;
+  border: none;
+}

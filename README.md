@@ -9,6 +9,8 @@ This project is an online store application developed to display products, manag
 - Update and display the total price of purchased products.
 - Responsive design with Bootstrap, adapting to various screen sizes.
 - About page featuring store information, logo, and contact details.
+- Login page for user authentication.
+- Registration page for new user sign-up.
 
 ## Installation
 
@@ -51,7 +53,9 @@ This project is an online store application developed to display products, manag
 ## References
 
 HyperionDev React - React Routing Task (PDF)
+HyperionDev React - React Form Validation (PDF)
 React Router - Complete Tutorial - [YouTube Video](https://www.youtube.com/watch?v=oTIJunBa6MA&t=15s)
 Bootstrap documentation - [Bootstrap cards](https://react-bootstrap.github.io/docs/components/cards/)
 Bootstrap documentation - [Dropdowns](https://react-bootstrap.github.io/docs/components/dropdowns/)
 Bootstrap documentation - [Figures](https://react-bootstrap.github.io/docs/components/figures/)
+Formik docs - [Tutorial](https://formik.org/docs/tutorial)
